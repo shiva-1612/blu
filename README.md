@@ -1,1 +1,67 @@
-# blu
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wooh!</title>
+</head>
+<body>
+    <h2>Update website using with <span class="h1">JS</span> </h2>
+    <div class="controls">
+        <label for="spacing">Spacing:</label>
+        <input type="range" name="spacing" min="10" max="200" value="10px" data-sizing="px" data-name="wes" data-cool="+poop">
+        <label for="blur">Blur:</label>
+        <input type="range" name="blur" min="0" max="25" value="10px" datasizing="px" data-name="wes" data-cool="+poop">
+<label for="base">Basecolour</label>
+<input type="color" name="base" value="#ffc600">
+    </div>
+<img src="https://nationaltoday.com/wp-content/uploads/2022/07/National-Flower-Day-1200x834.jpg">
+
+<style>
+    :root{
+       --base:#ffc600;
+       --spacing:10px;
+       --blur:23px;        
+    }
+    img{
+        padding:var(--spacing);
+        background: var(--base);
+        filter:blur(var(--blur));
+
+    }
+    .h1{
+        color:var(--base);
+    }
+    body{
+        text-align: center;
+        background:#193549;
+        color:white;
+        font-family: 'helvetica neue',sans-serif;
+        font-weight:100 ;
+        font-size:50px ;
+    }
+    .controls {
+        margin-bottom: 50px;
+    }
+    a{
+        color: var(--base);
+        text-decoration: none;
+    }
+    input {
+        width:100px;
+    }
+</style>
+<script>
+    const inputs = document.querySelectorAll('.controls input');
+    function handleUpdate(){
+    const suffix=this.dataset.sizing || '';
+    document.documentElement.style.setProperty(`--${this.name}`,this.value +  suffix);
+
+    }
+    inputs.forEach(input => input.addEventListener('change',handleUpdate));
+    inputs.forEach(input => input.addEventListener('mousemove',handleUpdate));
+
+
+</script>
+</body>
+</html>
